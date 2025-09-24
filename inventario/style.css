@@ -1,0 +1,240 @@
+/* Paleta de colores */
+:root {
+    --verde-claro: #d4edda;
+    --verde-medio: #28a745;
+    --verde-oscuro: #155724;
+    --verde-lima: #7dd87d;
+    --verde-menta: #a8e6cf;
+
+    --azul-claro: #cfe2ff;
+    --azul-medio: #0d6efd;
+    --azul-oscuro: #0a58ca;
+    --azul-cielo: #a5d8ff;
+    --azul-pastel: #99ccff;
+
+    --blanco-claro: #ffffff;
+    --blanco-suave: #f8f9fa;
+    --blanco-perla: #f1f3f6;
+}
+
+/* Body */
+body {
+    background-color: var(--blanco-perla);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--blanco-claro);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: var(--verde-oscuro) !important;
+    font-weight: bold;
+}
+
+/* Botones */
+.btn-outline-success {
+    color: var(--azul-medio);
+    border-color: var(--azul-medio);
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--azul-cielo);
+    color: #fff;
+}
+
+.btn-outline-danger {
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+/* Tarjetas */
+.card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Badge de color dinámico */
+.badge {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Input búsqueda */
+input.form-control {
+    border-radius: 25px;
+    border: 1px solid var(--azul-medio);
+    padding-left: 15px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+/* Fondo suave */
+body.bg-soft {
+    background: linear-gradient(120deg, var(--azul-claro), var(--verde-claro));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta de login */
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: var(--blanco-claro);
+}
+
+/* Títulos */
+.card h3 {
+    color: var(--verde-oscuro);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--verde-medio);
+    border-color: var(--verde-medio);
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-lima);
+    border-color: var(--verde-lima);
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 25px;
+    border: 1px solid var(--azul-medio);
+    padding: 10px 15px;
+}
+
+/* Link de crear cuenta */
+a {
+    color: var(--azul-medio);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--azul-oscuro);
+    text-decoration: underline;
+}
+
+/* Alertas */
+.alert {
+    border-radius: 12px;
+    padding: 8px 15px;
+}
+
+/* Responsivo */
+@media (max-width: 576px) {
+    .card {
+        margin: 0 15px;
+    }
+}
+
+
+
+
+
+/* Fondo suave para login/registro */
+body.bg-soft {
+    background: linear-gradient(120deg, var(--azul-claro), var(--verde-claro));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta de registro */
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: var(--blanco-claro);
+}
+
+/* Títulos */
+.card h3 {
+    color: var(--verde-oscuro);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botones */
+.btn-success {
+    background-color: var(--verde-medio);
+    border-color: var(--verde-medio);
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: background 0.3s;
+}
+
+.btn-success:hover {
+    background-color: var(--verde-lima);
+    border-color: var(--verde-lima);
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 25px;
+    border: 1px solid var(--azul-medio);
+    padding: 10px 15px;
+}
+
+/* Links */
+a {
+    color: var(--azul-medio);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--azul-oscuro);
+    text-decoration: underline;
+}
+
+/* Alertas */
+.alert {
+    border-radius: 12px;
+    padding: 8px 15px;
+}
+
+/* Responsivo */
+@media (max-width: 576px) {
+    .card {
+        margin: 0 15px;
+    }
+}
