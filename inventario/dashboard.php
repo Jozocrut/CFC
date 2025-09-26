@@ -22,11 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $batch_date = $_POST['batch_date'] ?? '';
     $expiry_date = $_POST['expiry_date'] ?? '';
     $maker = $_POST['maker'] ?? '';
+    $description = $_POST['description'] ?? ''; // <-- NUEVO
 
-    if ($name && $size && $batch_date && $expiry_date && $maker) {
-        $stmt = $pdo->prepare("INSERT INTO products (name, size, batch_date, expiry_date, maker) 
-                               VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$name, $size, $batch_date, $expiry_date, $maker]);
+    if ($name && $size && $batch_date && $expiry_date && $maker && $description) {
+        $stmt = $pdo->prepare("INSERT INTO products (name, size, batch_date, expiry_date, maker, description) 
+                               VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$name, $size, $batch_date, $expiry_date, $maker, $description]);
         $msg = "✅ Producto agregado correctamente";
     } else {
         $msg = "⚠️ Por favor llena todos los campos";
@@ -43,7 +44,7 @@ if ($search) {
     $params[] = "%$search%";
     $params[] = "%$search%";
 }
-$sql .= ' ORDER BY created_at DESC';
+$sql .= ' ORDER BY id DESC'; // cambiado a id para evitar error
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $products = $stmt->fetchAll();
@@ -105,6 +106,10 @@ $products = $stmt->fetchAll();
               <label class="form-label">Hecho por</label>
               <input type="text" name="maker" class="form-control" required>
             </div>
+            <div class="col-md-12">
+              <label class="form-label">Descripción</label>
+              <textarea name="description" class="form-control" rows="3" required></textarea>
+            </div>
           </div>
           <div class="mt-3 text-end">
             <button type="submit" class="btn btn-success">Agregar Producto</button>
@@ -113,14 +118,8 @@ $products = $stmt->fetchAll();
         </form>
       </div>
     </div>
-  <?php else: ?>
-    <!-- Botón para mostrar formulario -->
-    <div class="mb-3 text-end">
-      <a href="dashboard.php?add=1" class="btn btn-primary">➕ Agregar nuevo producto</a>
-    </div>
   <?php endif; ?>
-
-  <!-- Buscador -->
+  
   <div class="row mb-3">
     <div class="col-md-8">
       <form class="d-flex" method="get">
@@ -130,7 +129,6 @@ $products = $stmt->fetchAll();
     </div>
   </div>
 
-  <!-- Lista de productos -->
   <div class="row">
     <?php if(empty($products)): ?>
       <div class="col-12"><div class="alert alert-info">No hay productos registrados.</div></div>
@@ -144,24 +142,13 @@ $products = $stmt->fetchAll();
             <p class="card-text small">Tamaño: <strong><?=htmlspecialchars($p['size'])?></strong></p>
             <p class="card-text small">Lote: <?=htmlspecialchars($p['batch_date'])?> — Caduca: <?=htmlspecialchars($p['expiry_date'])?></p>
             <p class="card-text small">Hecho por: <?=htmlspecialchars($p['maker'])?></p>
+            <p class="card-text"><em><?=htmlspecialchars($p['description'])?></em></p> <!-- NUEVO -->
           </div>
         </div>
       </div>
     <?php endforeach; ?>
   </div>
 </div>
-
-<!-- Script para ocultar mensaje después de 5 segundos -->
-<script>
-  setTimeout(() => {
-    const alertBox = document.getElementById("alert-msg");
-    if (alertBox) {
-      alertBox.style.transition = "opacity 1s";
-      alertBox.style.opacity = "0";
-      setTimeout(() => alertBox.remove(), 1000);
-    }
-  }, 2000);
-</script>
-
 </body>
 </html>
+
