@@ -52,9 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label class="form-label">Contraseña</label>
               <input type="password" name="password" class="form-control" required>
             </div>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-primary">Entrar</button>
-              <a href="register.php">Crear cuenta</a>
             </div>
           </form>
         </div>
